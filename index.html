@@ -45,9 +45,23 @@
             background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
             color: black; /* Cambiar el color del texto para que sea visible sobre la imagen */
         }
+        #content { /* Línea añadida */
+            display: none; /* Línea añadida */
+        }
+        #login { /* Línea añadida */
+            display: flex; /* Línea añadida */
+            flex-direction: column; /* Línea añadida */
+            align-items: center; /* Línea añadida */
+        }
     </style>
 </head>
 <body>
+    <div id="login"> <!-- Línea añadida -->
+        <h1>Ingrese la contraseña</h1> <!-- Línea añadida -->
+        <input type="password" id="password" placeholder="Contraseña"> <!-- Línea añadida -->
+        <button onclick="checkPassword()">Ingresar</button> <!-- Línea añadida -->
+    </div> <!-- Línea añadida -->
+    <div id="content"> <!-- Línea añadida -->
     <div class="aniversario">
         ¡Feliz Cumple Mes!
     </div>
@@ -102,5 +116,18 @@
     <br>
     [Tu Nombre]
 </div>
+         </div> <!-- Línea añadida -->
+    <script> <!-- Línea añadida -->
+        function checkPassword() { <!-- Línea añadida -->
+            const password = document.getElementById('password').value; <!-- Línea añadida -->
+            const correctPassword = '210124'; <!-- Línea añadida --> // Reemplaza 'tucontraseña' con la contraseña correcta <!-- Línea añadida -->
+            if (password === correctPassword) { <!-- Línea añadida -->
+                document.getElementById('login').style.display = 'none'; <!-- Línea añadida -->
+                document.getElementById('content').style.display = 'block'; <!-- Línea añadida -->
+            } else { <!-- Línea añadida -->
+                alert('Contraseña incorrecta. Inténtalo de nuevo.'); <!-- Línea añadida -->
+            } <!-- Línea añadida -->
+        } <!-- Línea añadida -->
+    </script> <!-- Línea añadida -->
 </body>
 </html>
