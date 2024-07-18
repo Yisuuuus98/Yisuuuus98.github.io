@@ -53,11 +53,17 @@
             flex-direction: column; /* Línea añadida */
             align-items: center; /* Línea añadida */
         }
+        .login-header { /* Nueva clase añadida */
+            font-size: 24px; /* Cambia el tamaño de la fuente */
+            color: #333; /* Cambia el color del texto */
+            text-align: center; /* Centra el texto */
+            margin: 20px 0; /* Añade margen alrededor del texto */
+        }
     </style>
 </head>
 <body>
     <div id="login"> <!-- Línea añadida -->
-        <h1>Ingrese la contraseña</h1> <!-- Línea añadida -->
+       <h1 class="login-header">Por favor, introduce tu contraseña para acceder</h1> <!-- Línea modificada -->
         <input type="password" id="password" placeholder="Contraseña"> <!-- Línea añadida -->
         <button onclick="checkPassword()">Ingresar</button> <!-- Línea añadida -->
     </div> <!-- Línea añadida -->
