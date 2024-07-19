@@ -74,6 +74,41 @@
             margin: 10px;
             padding: 10px;
         }
+         /* Estilos para el carrusel */
+        .carousel {
+            position: relative;
+            width: 80%;
+            max-width: 1000px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            background-color: rgba(0,0,0,0.5);
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 3px;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
     </style>
 </head>
 <body>
@@ -136,6 +171,19 @@ Feliz cumple mes mi bb. Estoy muy feliz de poder sumar un mes más a tu lado. Es
     <br>
     Jesús
 </div>
+                <!-- Carrusel de imágenes -->
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="Imagen 19.jpeg" alt="Imagen 1">
+                <img src="Imagen 20.jpeg" alt="Imagen 2">
+                <img src="Imagen 21.jpeg" alt="Imagen 3">
+                <img src="Imagen 22.jpeg" alt="Imagen 4">
+                <!-- Agrega más imágenes aquí -->
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
          </div> <!-- Línea añadida -->
     <script> <!-- Línea añadida -->
         function checkPassword() { <!-- Línea añadida -->
@@ -148,6 +196,22 @@ Feliz cumple mes mi bb. Estoy muy feliz de poder sumar un mes más a tu lado. Es
                 alert('Contraseña incorrecta. Inténtalo de nuevo.'); <!-- Línea añadida -->
             } <!-- Línea añadida -->
         } <!-- Línea añadida -->
+     let slideIndex = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.carousel-images img');
+            slideIndex += step;
+            
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            const offset = -slideIndex * 100;
+            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        }
     </script> <!-- Línea añadida -->
 </body>
 </html>
