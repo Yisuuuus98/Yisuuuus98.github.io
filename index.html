@@ -90,8 +90,8 @@
         .carousel-images img {
              width: 80%;
             height: auto;
-            max-height: 400px;
-            object-fit: cover;
+           flex-shrink: 0; /* Evita que las imágenes se reduzcan */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
         }
         button {
             position: absolute;
