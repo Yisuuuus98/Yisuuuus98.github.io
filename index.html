@@ -237,21 +237,19 @@ Feliz cumple mes mi bb. Estoy muy feliz de poder sumar un mes más a tu lado. Es
                 alert('Contraseña incorrecta. Inténtalo de nuevo.'); <!-- Línea añadida -->
             } <!-- Línea añadida -->
         } <!-- Línea añadida -->
-     let slideIndex = 0;
+    const carouselImages = document.querySelector('.carousel-images');
+        const totalImages = document.querySelectorAll('.carousel-images img').length;
+        let currentIndex = 0;
 
-        function moveSlide(step) {
-            const slides = document.querySelectorAll('.carousel-images img');
-            slideIndex += step;
-            
-            if (slideIndex >= slides.length) {
-                slideIndex = 0;
+        function moveSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex >= totalImages) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = totalImages - 1;
             }
-            if (slideIndex < 0) {
-                slideIndex = slides.length - 1;
-            }
-
-            const offset = -slideIndex * 100;
-            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+            const offset = -currentIndex * 100;
+            carouselImages.style.transform = `translateX(${offset}%)`;
         }
     </script> <!-- Línea añadida -->
 </body>
